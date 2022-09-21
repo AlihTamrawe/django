@@ -1,3 +1,23 @@
 main {
     background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+.time_lable{
+    
+    width: 250px;
+    height: 70px;
+    text-align: center;
+    border: 2px solid black;
+    margin: 20px  0;
+}
+.time{
+    text-align: center;
+    font-size: 22px;
+    width: 400px;
+    height: 100px;
+    border: 2px solid black;
+    margin: 20px  0;
 }
