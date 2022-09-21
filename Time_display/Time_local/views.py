@@ -4,10 +4,10 @@ from time import gmtime, strftime
 
 def index(request):
     context = {
-        "time": strftime("%Y-%m-%d %H:%M %p", gmtime())
+        "time": strftime("%Y-%m-%d %H:%M %p ", gmtime())
     }
     return render(request,'index.html', context)
 
 def root(request):
-    return redirect('index.html')
+    return redirect('time_display')
 # Create your views here.
