@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from contextlib import redirect_stderr
+from django.shortcuts import render,redirect
+from time import gmtime, strftime
 
+def index(request):
+    context = {
+        "time": strftime("%Y-%m-%d %H:%M %p", gmtime())
+    }
+    return render(request,'index.html', context)
+
+def root(request):
+    return redirect('index.html')
 # Create your views here.
