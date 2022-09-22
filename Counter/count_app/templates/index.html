@@ -13,11 +13,10 @@
         <main >
             <div class="time_lable"><p> The Counter</p></div>
             <div class="time">
-                <form action="/Counter" method="post">
-                    {% csrf_token %}
-                <h4>counting :<p > {{request.session.count}}</p></h4>
-                <input type="submit" name="" >
-            </form></div>
+                
+                <h4>counting :<p  > {{request.session.test}}</p></h4>
+                
+            </div>
         </main>
 </body>
 </html>
