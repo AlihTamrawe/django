@@ -1,7 +1,4 @@
-from platform import release
-from turtle import update
 from django.db import models
-
 
 class Movie(models.Model):
         title = models.TextField(max_length=45)

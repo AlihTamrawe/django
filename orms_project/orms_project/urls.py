@@ -1,6 +1,6 @@
-from xml.etree.ElementInclude import include
-from django.urls import path
+
+from django.urls import path,include
 
 urlpatterns = [
-    # path('',include('user_app.urls')),
+    path('',include('user_app.urls')),
 ]
