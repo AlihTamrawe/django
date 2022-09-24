@@ -6,6 +6,7 @@ def callculate(request):
     color ='white'
     result = ' '
     number = random.randint(1, 100) 
+    print(number)
     if request.GET:
         print(request.GET)
         answe = (request.GET['answer'])
