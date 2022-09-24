@@ -6,21 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}	
     <link rel="stylesheet" href="{% static  'style.css'%}">  
-    <title>Time Display</title>
+    <title>greater number</title>
     
 </head>
 <body>
         <main >
-            <div class="time_lable"><p> The greater Number</p></div>
+            <div class="time_lable"><h1> Welcome to The greater Number Game</h1></div>
+            <div class="time_lable"><p>I am Thinging of a number between 1 and 100 <br> take agess </p></div>
             <div class="time">
-                
-                <h4>counting :<p  > {{request.session.test}}</p></h4>
-                <form action="/d" >
-                    <input type="submit" name="rest" placeholder="Rest">
-                    </form>
-                    
+
+
                     <form action="" >
-                        <input type="submit" name="plus" value="Plus" >
+                        {% csrf_token %}
+                        {% if result != 0 %}
+                        <div class='Answer ' style="background-color:{{color}} "> {{result}}</div>
+                        {%endif%}
+                        <input type="text"  name="answer">
+                        <label for=""> Guess the number</label><input type="submit" name="sub" placeholder="Rest">
                     </form>
             </div>
         </main>
