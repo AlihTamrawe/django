@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}	
+    <link rel="stylesheet" href="{% static  'style.css'%}">  
+    <title>Time Display</title>
+    
+</head>
+<body>
+        <main >
+            <div class="time_lable"><p> The greater Number</p></div>
+            <div class="time">
+                
+                <h4>counting :<p  > {{request.session.test}}</p></h4>
+                <form action="/d" >
+                    <input type="submit" name="rest" placeholder="Rest">
+                    </form>
+                    
+                    <form action="" >
+                        <input type="submit" name="plus" value="Plus" >
+                    </form>
+            </div>
+        </main>
+</body>
+</html>
