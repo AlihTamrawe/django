@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}	
+    <link rel="stylesheet" href="{% static  'style2.css'%}">  
+    <title>greater number</title>
+    
+</head>
+<body>
+        <main >
+                    
+                        <label for="">Your gold</label>  <input type="text" name="golds" value='{{x}}' readonly>
+                       
+                        <div class="container">
+                            <div class="column">
+                                <form method="post" >
+                                    {% csrf_token %}
+                                <h4>Farm</h4>
+                                <p>(earns 10-20 gold)</p>
+                                <button name="bt1" value="btn1">Find Gold!</button>
+                                <input type="hidden" name="kill" value="btn1">
+                            </form>
+                            </div>
+                            <div class="column">
+                                <form method="post" >
+                                    {% csrf_token %}
+                                <h4>Cave</h4>
+                                <p>(earns 10-20 gold)</p>
+                                <button name="bt2" value="btn2">Find Gold!</button>
+                                <input type="hidden" name="kill" value="btn2">
+                                </form >
+                            </div>
+                            <div class="column">
+                                <form method="post" >
+                                    {% csrf_token %}
+                                <h4>House</h4>
+                                <p>(earns 10-20 gold)</p>
+                                <button name="bt3" value="btn3">Find Gold!</button>
+                                <input type="hidden" name="kill" value="btn3">
+                                </form >
+                            </div>
+                            <div class="column">
+                                <form method="post" >
+                                    {% csrf_token %}
+                                <h4>Quest</h4>
+                                <p>(earns/Takes 0-50 gold)</p>
+                                <input type="hidden" name="kill" value="btn4">
+                                <button name="bt4" value="btn4">Find Gold!</button>
+                            </form >
+                            
+                            </div>
+                        </div>
+                    
+                        <label for=""></label>
+                        <div class="result">
+                        <h5 for=""> Activites</h5>
+                        {% for i in g%}
+                        <input type="text" name="result" value='{{i}}' readonly><br>
+                        {% endfor%}
+                        </div>
+                    
+            </div>
+        </main>
+</body>
+</html>
