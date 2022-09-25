@@ -13,15 +13,16 @@
         <main >
             <div class="time_lable"><h1> Welcome to The greater Number Game</h1></div>
             <div class="time_lable"><p>I am Thinging of a number between 1 and 100 <br> take agess </p></div>
-            <div class="time">
 
 
                     <form action="" >
                         {% csrf_token %}
-                        {% if result != 0 %}
-                        <div class='Answer ' style="background-color:{{color}} "> {{result}}</div>
+                        {% if color != 'white'   %}
+                        <div class='Answer' style=" background-color:{{color}}; "> {{result}}</div>
+                        {%else%}
+                        <div class='Answer' style="display: none  "> </div>
                         {%endif%}
-                        <input type="text"  name="answer">
+                        <input type="text"  name="answer" required>
                         <label for=""> Guess the number</label><input type="submit" name="sub" placeholder="Rest">
                     </form>
             </div>
