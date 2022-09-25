@@ -43,7 +43,7 @@
                                 </form >
                             </div>
                             <div class="column">
-                                <form method="post" >
+                                <form method="post" action="">
                                     {% csrf_token %}
                                 <h4>Quest</h4>
                                 <p>(earns/Takes 0-50 gold)</p>
@@ -57,8 +57,13 @@
                         <label for=""></label>
                         <div class="result">
                         <h5 for=""> Activites</h5>
-                        {% for i in g%}
-                        <p  style="color: {{color}};">{{i}}</p><br>
+                        {% for i in g reversed%}
+                        
+                            {%  if "sorry" in i %}
+                             <p  style="color: {{color}};">{{i}}</p><br>
+                            {% else %}
+                             <p  style="color: green;">{{i}}</p><br>
+                             {%endif%}
                         {% endfor%}
                         </div>
                     
