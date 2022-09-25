@@ -1,11 +1,12 @@
-from django.shortcuts import render
+import numbers
+from django.shortcuts import render,redirect
 import random 	                 
 
 
 def callculate(request):
     color ='white'
     result = ' '
-    number = random.randint(1, 100) 
+    number=request.session['number']
     print(number)
     if request.GET:
         print(request.GET)
@@ -25,4 +26,9 @@ def callculate(request):
         'result':result,
     }
     return render(request,'index.html',context)
+
+def root(request):
+    number = random.randint(1, 100) 
+    request.session['number']=number
+    return redirect('/generate')
 

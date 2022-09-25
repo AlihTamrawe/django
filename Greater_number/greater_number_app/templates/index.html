@@ -5,20 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}	
-    <link rel="stylesheet" href="{% static  'style.css'%}">  
+    <link rel="stylesheet" href="{% static  'style2.css'%}">  
     <title>greater number</title>
     
 </head>
 <body>
         <main >
             <div class="time_lable"><h1> Welcome to The greater Number Game</h1></div>
-            <div class="time_lable"><p>I am Thinging of a number between 1 and 100 <br> take agess </p></div>
+            <div class="time_lable"><h4>I am Thinging of a number between 1 and 100 <br> take agess </h4></div>
 
 
                     <form action="" >
                         {% csrf_token %}
                         {% if color != 'white'   %}
-                        <div class='Answer' style=" background-color:{{color}}; "> {{result}}</div>
+                        <div class='Answer' style=" background-color:{{color}}"> {{result}}</div>
                         {%else%}
                         <div class='Answer' style="display: none  "> </div>
                         {%endif%}
