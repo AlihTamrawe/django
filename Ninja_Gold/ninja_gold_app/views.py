@@ -18,7 +18,7 @@ def root(request):
 def process(request):
     length1 =0 
     contain = []
-    
+    color="green"
     # if request.POST['actions'] =='btn1':
 
     time=strftime("%Y-%m-%d %H:%M %p ", gmtime())
@@ -49,12 +49,14 @@ def process(request):
             result1=str("so sorry you lost 50 "+str(time))
             request.session['result'].append(result1) 
             request.session['count']+=1
+            color="red"
             
     request.session.save()
     context = {
             'x':request.session['golds'],
             'g':request.session['result'],
             't':request.session['count'],
+            'color':color
         }
     
     return render(request,'index.html',context)
