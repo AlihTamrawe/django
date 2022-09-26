@@ -15,7 +15,8 @@ def insert(request):
         print("submiting ...........")
         city= request.POST.get('city_from')
         state = request.POST.get('state_from')
-        Dojos.objects.create(name=name,city=city,state=state)
+        desc = request.POST.get('desc_from')
+        Dojos.objects.create(name=name,city=city,state=state,desc=desc)
     elif request.POST.get('dojo') =='addt':
         first_name=request.POST.get('first_name_from')
         print("submiting ...........")

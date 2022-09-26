@@ -22,10 +22,10 @@
                     <input type="text" name="city_from" required>
                     <label for="">State</label>
                     <input type="text" name="state_from" required>
-                    <label for="">Desc</label>
-                    <input type="desc" name="desc_from">
-                    <input type="hidden" name="dojo" value="add1">
-                    <input type="submit" class="btn btn-danger" name="dojo" value="add1" >
+                    <label for="">State</label>
+                    <input type="desc" name="desc_from" required>
+                    <input type="hidden" name="book" value="add1">
+                    <input type="submit" class="btn btn-danger" name="book" value="add1" >
 
               </form>
             </div>
@@ -47,7 +47,7 @@
                     </select>
                     <input type="hidden" name="dojo">
 
-                    <input type="submit" class="btn btn-danger" name="dojo"  value="addt"> 
+                    <input type="submit" class="btn btn-danger" name="book"  value="addt"> 
                  
                   
 
@@ -71,7 +71,6 @@
                 <th scope="col"> {{dojo.id}}</th>
                 <th scope="col">{{dojo.name}}</th>
                 <th scope="col">{{dojo.name}}</th>
-                <th scope="col">{{dojo.desc}}</th>
               </tr>
               {% endfor%}
             </thead>
