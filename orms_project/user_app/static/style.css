@@ -1,23 +1,62 @@
 main {
     background-color: aliceblue;
     display: flex;
+    height: 900px;
     align-items: center;
     flex-direction: column;
-    padding: 10px;
+
 }
 .time_lable{
     
-    width: 250px;
-    height: 70px;
+    width: 550px;
+    height: 80px;
     text-align: center;
-    border: 2px solid black;
     margin: 20px  0;
 }
 .time{
+    background-color: white;
     text-align: center;
-    font-size: 22px;
     width: 400px;
-    height: 100px;
-    border: 2px solid black;
+    height: 70px;
     margin: 20px  0;
+    
+}
+
+.container {
+    display: flex;
+    width: 790px;
+    height: 250px;
+    padding: 5px;
+    margin: 10px;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+.column {
+    display: flex;
+    width: 20%;
+    height: 80%;
+    border-radius: 3px;
+    border: 2px solid gray;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    align-content: space-around;
+    text-align: center;
+    justify-content: space-between;
+}
+.result{
+    
+    display: flex;
+    width : 70%;
+    height: 200px;
+    flex-direction: column;
+    
+}
+.result input {
+    text-align: justify;
+    width: 600px;
+    height: 350px;
+    border: 2px solid gray;
+
 }

@@ -1,0 +1,2 @@
+ Dojos.objects.create(name="ali",city="jenin",state="p207")
+<Dojos: Dojos object (1)>
