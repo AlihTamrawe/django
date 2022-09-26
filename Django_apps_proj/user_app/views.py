@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from multiprocessing import context
+from django.shortcuts import render,redirect,HttpResponse
 
-# Create your views here.
+def root(request):
+    return redirect('/user')
+def index(request):
+    return HttpResponse("user here")

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}	
+    <link rel="stylesheet" href="{% static  'style3.css'%}">  
+    <title class="title-dark">Dojos & Ninjas </title>
+</head>
+<body>
+      <main>
+          <div class="container col-2">
+            <div class="column col-4">
+              <form action="" method="post">
+                {% csrf_token %}
+                <p>Dojos</p>
+                    <label for="">Name</label>
+                    <input type="text" name="name_from" required>
+                    <label for="">City</label>
+                    <input type="text" name="city_from" required>
+                    <label for="">State</label>
+                    <input type="text" name="state_from" required>
+                    <label for="">Desc</label>
+                    <input type="desc" name="desc_from">
+                    <input type="hidden" name="dojo" value="add1">
+                    <input type="submit" class="btn btn-danger" name="dojo" value="add1" >
+
+              </form>
+            </div>
+            <div class="column col-4">
+              <form action="" method="post">
+                <p>Ninjas</p>
+                {% csrf_token %}
+                
+                    <label for="">first name</label>
+                    <input type="text" name="first_name_from" required>
+                    <label for="">last name</label>
+                    <input type="text" name="last_name_from" required>
+                    <label for="">Dojos</label>
+                    <select name="ids">
+                      {% for dojo in all_the_dojo %}
+                        <option  value="{{dojo.id}}">{{dojo.name}}</option> 
+                      {% endfor%}
+                        
+                    </select>
+                    <input type="hidden" name="dojo">
+
+                    <input type="submit" class="btn btn-danger" name="dojo"  value="addt"> 
+                 
+                  
+
+              </form>
+            </div>
+          </div>
+          <table class="table table-striped ">
+            <thead >
+              <tr class='row-2'>
+                
+                <th scope="col">#</th>
+                <th scope="col"> dojo id</th>
+                <th scope="col">dojo name</th>
+                <th scope="col">dojo.name</th>
+                
+              </tr>
+              {% for dojo in all_the_dojo %}
+              <tr class='row-2'>
+                
+                <th scope="col">#</th>
+                <th scope="col"> {{dojo.id}}</th>
+                <th scope="col">{{dojo.name}}</th>
+                <th scope="col">{{dojo.name}}</th>
+                <th scope="col">{{dojo.desc}}</th>
+              </tr>
+              {% endfor%}
+            </thead>
+          </table>
+          <table class="table table-striped  ">
+            <thead >
+              <tr class='row-2  '>
+                
+                <th scope="col">#</th>
+                <th scope="col"> ninja id</th>
+                <th scope="col">ninja first name</th>
+                <th scope="col">ninja last name</th>
+                <th scope="col">dojo</th>
+                
+              </tr>
+              {% for ninja in all_the_ninja %}
+              <tr class='row-2'>
+                
+                <th scope="col">#</th>
+                <th scope="col"> {{ninja.id}}</th>
+                <th scope="col">{{ninja.first_name}}</th>
+                <th scope="col">{{ninja.last_ame}}</th>
+                <th scope="col">{{ninja.Dojo_id}}</th>
+
+              </tr>
+              {% endfor%}
+            </thead>
+          </table>
+          <h1>Dojos List</h1>
+<ul>
+  {% for dojo in all_the_dojo %}
+    <li>{{dojo.name}}
+      <ul>
+    	<!-- looping through each author's books! -->
+        {% for ninja in all_the_ninja %}	
+         {%if dojo.id == ninja.Dojo_id%}
+          <li><em>{{ninja.first_name}}</em></li>
+          {%endif%}
+        {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+</ul>
+      </main>
+
+      
+
+
+     
+         <!-- 
+        <tbody>
+            {% for user in all_the_users %}
+          <tr>
+            <td>{{ user.id }}</td>
+            <th scope="row">{{ user.first_name }}</th>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.age }}</td>
+          </tr>
+          {% endfor %}
+           <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr> -->
+        </tbody>
+      </table>
+    <h1>All Dojo s</h1>
+   
+    
+    <!-- <div class="table_time col">
+      <form action="/" method="post">
+        {% csrf_token %}
+        <div class="time row-2"> 
+            <label for="">first name</label>
+            <input type="text" name="first_name_from" required>
+            <label for="">last name</label>
+            <input type="text" name="last_name_from" required>
+          </div>
+        <div class="time row-2"><label for="">Email</label> <input type="email" name="email_from" required> <label for="">Your age :</label><input type="text" name="age_from" required></div>
+        <div class="time row-3 "> <input type="submit" class="btn btn-danger" name="insert_into" > </div>
+        </form>
+        <form action="/" method="post">
+          {% csrf_token %}
+          <div class="time"><label for="">delete by id</label><input type="text" name="ids" required> </div>
+          <div class="time row-3 "> <input type="submit" class="btn btn-danger" name="Delete" > </div>
+       
+        </form>
+    </div> --> 
+</body>
+</html>
