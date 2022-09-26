@@ -36,6 +36,7 @@
                     <input type="text" name="first_name_from" required>
                     <label for="">last name</label>
                     <input type="text" name="last_name_from" required>
+                    <label for="">Dojos</label>
                     <select name="ids">
                       {% for dojo in all_the_dojo %}
                         <option  value="{{dojo.id}}">{{dojo.id}}</option> 
@@ -96,6 +97,21 @@
               {% endfor%}
             </thead>
           </table>
+          <h1>Dojos List</h1>
+<ul>
+  {% for dojo in all_the_dojo %}
+    <li>{{dojo.name}}
+      <ul>
+    	<!-- looping through each author's books! -->
+        {% for ninja in all_the_ninja %}	
+         {%if dojo.id == ninja.Dojo_id%}
+          <li><em>{{ninja.first_name}}</em></li>
+          {%endif%}
+        {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+</ul>
       </main>
 
       
