@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}	
+    <link rel="stylesheet" href="{% static  'style4.css'%}"> 
+    <title>book</title>
+</head>
+<body>
+    <h2>Books</h2>
+    <!-- <a href="/author">hi {{num}} {{from}}</a> -->
+
+    <h1>ID {{num}}</h1>
+    <main >
+        <div class="container">
+            <p>{{author.title}} {{books.desc}}</p>
+            <ul>
+            {% for author1 in author %}
+                <li> {{ author1.name}} </li>
+            {% endfor%}
+        </ul>
+            <form action="" method="post">
+                {% csrf_token %}
+            <select name="add_authors2" id="">
+                {% for author1 in book%}
+                <option  value="{{author1.id}}">{{author1.title}} </option>
+                {% endfor%}
+            </select>
+            <input type="hidden" name="add_authors" value="add">
+            <input type="submit" name="add_authors" value="add">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

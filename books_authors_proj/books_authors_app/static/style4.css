@@ -1,0 +1,18 @@
+main {
+    background-color: aliceblue;
+    height: 800px;
+    width: 750px;
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.contaner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

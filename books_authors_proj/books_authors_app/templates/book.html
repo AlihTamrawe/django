@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}	
+    <link rel="stylesheet" href="{% static  'style4.css'%}"> 
+    <title>book</title>
+</head>
+<body>
+    <h2>Books</h2>
+    <!-- <a href="/author">hi {{num}} {{from}}</a> -->
+    <div class="contaner">
+        <div class="col-2 grey">
+            <form action="/" method="post">
+                {% csrf_token %}
+                <h1>Add Book</h1>
+                <div class="row-1"> <label for="">Title</label> <input type="text" name="titles"></div>
+                <div class="row-2"> <label for="">Description</label> <input type="text" name="description"></div>
+                <input type="submit" name="add_book" value="Add">
+            </form>
+        </div>
+        <table class="table col-4">
+            <tbody class="table tbody-dark">
+                
+                <tr>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>Action </a></th>
+                </tr>
+                
+                {% for book in all_book%}
+                <tr>
+                    <th>{{book.id}}</th>
+                    <th>{{book.title}}</th>
+                    <th> <a href="\book\{{book.id}}">view</a></th>
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
