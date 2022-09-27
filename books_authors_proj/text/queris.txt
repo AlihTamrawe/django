@@ -99,3 +99,52 @@ this_publisher = Authors.objects.get(id=3)
 >>> this_publisher.books.add(this_book)
 >>> this_book.publishers.add(this_publisher)
 >>>
+
+10=------------------------------
+this_book = Books.objects.get(id=3)
+>>> this_publisher.books.add(this_book)
+>>> this_book.publishers.add(this_publisher)
+>>> this_book = Books.objects.get(id=4)
+>>> this_publisher.books.add(this_book)
+>>> this_book.publishers.add(this_publisher)
+>>> this_book = Books.objects.get(id=5)
+>>> this_book.publishers.add(this_publisher)
+>>> this_publisher.books.add(this_book)
+>>>
+
+11-----------------
+this_book = Books.objects.get(id=3)
+>>> this_book.publishers.all()
+<QuerySet [<Authors: Authors object (2)>, <Authors: Authors object (5)>]>
+ this_book.publishers.all().values()
+<QuerySet [{'id': 2, 'name': 'Jane Austen', 'created_at': datetime.datetime(2022, 9, 26, 20, 58, 57, 182735, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 26, 20, 58, 57, 182735, tzinfo=<UTC>), 'notes': ''}, {'id': 5, 'name': 'William Shakespeare', 'created_at': datetime.datetime(2022, 9, 26, 20, 59, 46, 411056, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 26, 20, 59, 46, 411056, tzinfo=<UTC>), 'notes': ''}]>
+>>>
+
+
+12------------
+
+
+>>> this_book = Books.objects.get(id=3)
+>>> this_book.publishers.remove(this_publisher)
+>>> this_book.publishers.remove(first())
+
+
+
+
+13-------------------------------------
+
+this_book = Books.objects.get(id=3)
+>>> this_book.publishers.add(this_publisher)
+>>> this_publisher.books.add(this_book)
+>>> this_publisher = Authors.objects.get(id=5)
+
+14----------------------------------------
+
+>>> this_book = Books.objects.get(id=3)
+>>> this_book.publishers.all()
+<QuerySet [<Authors: Authors object (2)>, <Authors: Authors object (5)>, <Authors: Authors object (3)>]>
+>>>
+
+15---------------------------------
+this_book = Books.objects.get(id=5)
+>>> this_book.publishers.all()
