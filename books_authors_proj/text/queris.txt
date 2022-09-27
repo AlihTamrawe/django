@@ -6,7 +6,7 @@ Books.objects.create(title="Python",desc="f1",created_at="2022-02-13",updated_at
 Books.objects.create(title="PHP",desc="f1",created_at="2022-02-13",updated_at="2022-06-22")
 Books.objects.create(title="Ruby",desc="f1",created_at="2022-02-13",updated_at="2022-06-22")
 
-
+1--------------------------------
 
  v=Books.objects.get(id=1).__dict__
 >>> v['f1']
@@ -18,7 +18,7 @@ KeyError: 'f1'
 >>> print(v)
 
 
-
+2-------------------------
 
  Authors.objects.create(name="ali",books=Books.objects.get(id=3),created_at="2022-02-13",updated_at="2022-06-22")
 
@@ -27,7 +27,7 @@ KeyError: 'f1'
   this_author = Authors.objects.get(id=1)
 >>> this_author.books.add(this_book)
 >>>
-
+3--------------------
 
  this_book.publishers.add(this_author)
 
@@ -54,4 +54,48 @@ IndentationError: unexpected indent
 <Authors: Authors object (5)>
 >>> Authors.objects.create(name="Lau Tzu",created_at="2022-02-13",updated_at="2022-06-22")
 <Authors: Authors object (6)>
+
+
+
+5-------------------------
+>>> name = Books.objects.get(id=1)
+>>> name.title="c#"
+>>> name.save()
+>>> Books.objects.all().values()
+
+
+
+6-------------------------
+edit = Books.objects.get(id=5)
+>>> edit.name="bill Shakespeare"
+>>> edit.save
+<bound method Model.save of <Books: Books object (5)>>
+>>> edit.save()
+>>>
+
+
+7---------------------------------
+ this_book = Books.objects.first()
+>>> this_publisher = Authors.objects.get(id=2)
+>>> this_publisher.books.add(this_book)
+>>> his_book.publishers.add(this_publisher)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'his_book' is not defined
+>>> this_book.publishers.add(this_publisher)
+>>>
+8----------------------------------
+ this_publisher = Authors.objects.get(id=2)
+>>> this_book = Books.objects.get(id=3)
+>>> this_book.publishers.add(this_publisher)
+>>> this_publisher.books.add(this_book)
+>>>
+
+
+9---------------------------------------------
+
+this_publisher = Authors.objects.get(id=3)
+>>> this_book = Books.objects.get(id=4)
+>>> this_publisher.books.add(this_book)
+>>> this_book.publishers.add(this_publisher)
 >>>
