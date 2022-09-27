@@ -6,6 +6,7 @@ class Books(models.Model):
     desc = models.TextField()
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now_add=True)
+    
 
 
 class Authors(models.Model):
@@ -13,3 +14,4 @@ class Authors(models.Model):
 	books = models.ManyToManyField(Books, related_name="publishers")
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
+    

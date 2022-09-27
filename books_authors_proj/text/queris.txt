@@ -1,0 +1,57 @@
+C Sharp, Java, Python, PHP, Ruby
+
+Books.objects.create(title="C Sharp",desc="f1",created_at="2022-02-13",updated_at="2022-06-22")
+Books.objects.create(title="Java",desc="f1",created_at="2022-02-13",updated_at="2022-06-22")
+Books.objects.create(title="Python",desc="f1",created_at="2022-02-13",updated_at="2022-06-22")
+Books.objects.create(title="PHP",desc="f1",created_at="2022-02-13",updated_at="2022-06-22")
+Books.objects.create(title="Ruby",desc="f1",created_at="2022-02-13",updated_at="2022-06-22")
+
+
+
+ v=Books.objects.get(id=1).__dict__
+>>> v['f1']
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+KeyError: 'f1'
+>>> print(v)
+{'_state': <django.db.models.base.ModelState object at 0x000001980CC63010>, 'id': 1, 'title': 'C Sharp', 'desc': 'f1', 'created_at': datetime.date(2022, 9, 26), 'updated_at': datetime.date(2022, 9, 26)}
+>>> print(v)
+
+
+
+
+ Authors.objects.create(name="ali",books=Books.objects.get(id=3),created_at="2022-02-13",updated_at="2022-06-22")
+
+
+>>> this_book = Books.objects.get(id=4)                                                               
+  this_author = Authors.objects.get(id=1)
+>>> this_author.books.add(this_book)
+>>>
+
+
+ this_book.publishers.add(this_author)
+
+Jane Austen, Emily Dickinson, Fyodor Dostoevsky, William Shakespeare, Lau Tzu
+
+ >>> Authors.objects.create(name="Jane Austen",created_at="2022-02-13",updated_at="2022-06-22")
+ >>> Authors.objects.create(name="Emily Dickinson",created_at="2022-02-13",updated_at="2022-06-22")
+Authors.objects.create(name="Fyodor Dostoevsky",created_at="2022-02-13",updated_at="2022-06-22")
+Authors.objects.create(name="William Shakespeare",created_at="2022-02-13",updated_at="2022-06-22")
+Authors.objects.create(name="Lau Tzu",created_at="2022-02-13",updated_at="2022-06-22")
+
+
+
+ Authors.objects.create(name="Emily Dickinson",created_at="2022-02-13",updated_at="2022-06-22")
+  File "<console>", line 1
+    >>> Authors.objects.create(name="Emily Dickinson",created_at="2022-02-13",updated_at="2022-06-22")
+IndentationError: unexpected indent
+>>> Authors.objects.create(name="Emily Dickinson",created_at="2022-02-13",updated_at="2022-06-22")
+<Authors: Authors object (3)>
+>>> Authors.objects.create(name="Fyodor Dostoevsky",created_at="2022-02-13",updated_at="2022-06-22")
+<Authors: Authors object (4)>
+>>> Authors.objects.create(name="William Shakespeare",created_at="2022-02-13",updated_at="2022-06-22")
+
+<Authors: Authors object (5)>
+>>> Authors.objects.create(name="Lau Tzu",created_at="2022-02-13",updated_at="2022-06-22")
+<Authors: Authors object (6)>
+>>>
