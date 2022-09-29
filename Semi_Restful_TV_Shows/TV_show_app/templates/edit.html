@@ -10,25 +10,27 @@
     <title class="title-dark">Dojos & Ninjas </title>
 </head>
 <body>
+      <footer class="col-12" ><h1>Edit Show {{id}}</h1> <a href="/shows/">Back to home</a></footer>
+  
       <div class="row" >
           <div class="container col-2">
+            <a style="position:absolute; top:10px;left:15px; font-size: 17px; color: blueviolet;" href="/shows">Go Back to home</a>
             <div class="column col-4">
-              <form action="/create" method="post">
+              <form method="post">
                 {% csrf_token %}
-                <h1>Edit Show</h1>
                     <label for="">Title</label>
-                    <input type="text" name="name_from" required>
+                    <input type="text" name="name_from" value="{{show_id.title}}" required>
                     <div>
                     <label for="">Network</label>
-                    <input type="text" name="network_from" required>
+                    <input type="text" name="network_from" value="{{show_id.network}}" required>
                     <label for="">State</label>
-                    <input type="date" name="date_from" required>
+                    <input type="date" name="date_from" value="{{show_id.release_date}}" >
                   </div>
                     <label for="">Desc</label>
-                    <input type="desc" name="desc_from">
-                    <input type="hidden" name="dojo" value="add1">
-                    <input type="submit" class="btn btn-danger" name="dojo" value="add1" >
+                    <input type="desc" name="desc_from" value="{{show_id.desc}}" >
+                    <input type="submit" class="btn btn-danger" name="update2" value="edit" >
 
+                    <h1>{{message}}</h1>
               </form>
             </div>
             </div>

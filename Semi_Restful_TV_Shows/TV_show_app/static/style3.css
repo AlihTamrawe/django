@@ -5,3 +5,16 @@ main {
     flex-direction: column;
     padding: 10px;
 }
+a {
+    position: relative;
+    text-decoration: underline;
+    font-size: 20px;
+
+}
+footer{
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+}
+
+
