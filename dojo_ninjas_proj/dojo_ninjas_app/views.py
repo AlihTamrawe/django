@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.shortcuts import render
-from .models import Dojos,Ninjas
+from .models import Dojos,Ninjas,NinjaManager
 from django.contrib import messages
 
 

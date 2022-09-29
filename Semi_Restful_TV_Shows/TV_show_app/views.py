@@ -51,4 +51,4 @@ def details(request,id):
 def deleteme(request,id):
     item = Shows.objects.get(id=id)
     item.delete()
-    return redirect('/shows/new')
+    return redirect('/shows')
