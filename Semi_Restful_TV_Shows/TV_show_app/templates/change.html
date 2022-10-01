@@ -20,7 +20,7 @@
                 {% csrf_token %}
               
                 <label for="">Title</label>
-                <input type="text" name="name_from" required>
+                <input type="text" name="title_from" required>
                 <div>
                 <label for="">Network</label>
                 <input type="text" name="network_from" required>
@@ -30,9 +30,19 @@
                 <label for="">Desc</label>
                 <input type="desc" name="desc_from">
                 <input type="submit" class="btn btn-danger" name="tv_change" value="add" >
-         </form>
+              </form>
             </div>
           </div>
-        </div>
+      </div>
+      <div class="col-8">
+        <h1>Massages of validation</h1>
+    {% if messages %}
+        <ul class="messages">    
+        {% for message in messages %}    
+          <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+        </ul>
+    {% endif %}
+      </div>
 </body>
 </html>

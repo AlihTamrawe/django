@@ -1,7 +1,7 @@
 import http
 from django.shortcuts import render,redirect,HttpResponse
-from .models import Shows,insert2,update2
-
+from .models import Shows,insert2,update2,ShowsManager
+from django.contrib import messages
 def root(request):
     return redirect('/shows')
 
@@ -9,13 +9,21 @@ def root(request):
 
 
 def insert(request):
+    errors1={}
     if request.POST :
-        url = '/shows'
-        id = 0
-        id = insert2(request.POST)
-        url = "/shows/"+str(id)
-        if id != 0 :
-            return redirect(url)
+        errors1 = Shows.objects.validate_show(request.POST)
+        if not errors1 :
+            url = '/shows'
+            id = 0
+            id = insert2(request.POST)
+            url = "/shows/"+str(id)
+            message="update Successfully"
+            messages.error(request, "sucssful editing")
+            if id != 0 :
+                return redirect(url)
+        else:
+            for key, value in errors1.items():
+                messages.error(request, value)
     return render(request,'change.html')
 
 def toshownew(request):
@@ -27,16 +35,22 @@ def toshownew(request):
 
 
 def edit(request,id):
-    messages = "fail to update"
+    errors={}
+    message = "fail to update"
     id1 = Shows.objects.get(id=id)
     if request.POST:
-        fields= request.POST
-        update2(fields,id1)
-        print("update Successfully")
-        messages="update Successfully"
+        errors = Shows.objects.validate_show(request.POST)
+        if not errors :
+            fields= request.POST
+            update2(fields,id1)
+            print("update Successfully")
+            messages.error(request, "succssful editing")
+        else:
+            for key, value in errors.items():
+                messages.error(request, value)
     context= {
         'id':id,
-        'message':messages,
+        'message':message,
         'show_id':id1
     }
     return render(request,'edit.html',context)
