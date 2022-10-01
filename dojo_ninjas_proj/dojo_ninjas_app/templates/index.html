@@ -100,78 +100,34 @@
               {% endfor%}
             </thead>
           </table>
-          <h1>Dojos List</h1>
-<ul>
-  {% for dojo in all_the_dojo %}
-    <li>{{dojo.name}}
-      <ul>
-    	<!-- looping through each author's books! -->
-        {% for ninja in all_the_ninja %}	
-         {%if dojo.id == ninja.Dojo_id%}
-          <li><em>{{ninja.first_name}}</em></li>
-          {%endif%}
-        {% endfor %}
-      </ul>
-    </li>
-  {% endfor %}
-</ul>
-      </main>
+  
+        <div class="col">
+          <ul>
+            <h1>Dojos List</h1>
+            {% for dojo in all_the_dojo %}
+              <li>{{dojo.name}}
+                <ul>
+                <!-- looping through each author's books! -->
+                  {% for ninja in all_the_ninja %}	
+                  {%if dojo.id == ninja.Dojo_id%}
+                    <li><em>{{ninja.first_name}}</em></li>
+                    {%endif%}
+                  {% endfor %}
+                </ul>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
 
-      
-
-
-     
-         <!-- 
-        <tbody>
-            {% for user in all_the_users %}
-          <tr>
-            <td>{{ user.id }}</td>
-            <th scope="row">{{ user.first_name }}</th>
-            <td>{{ user.last_name }}</td>
-            <td>{{ user.age }}</td>
-          </tr>
-          {% endfor %}
-           <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr> -->
-        </tbody>
-      </table>
-    <h1>All Dojo s</h1>
+      <div class="col-8">
+        <h1>Massages of validation</h1>
     {% if messages %}
-<ul class="messages">    
-    {% for message in messages %}    
-        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
-    {% endfor %}
-</ul>
-{% endif %}
-    
-    <!-- <div class="table_time col">
-      <form action="/" method="post">
-        {% csrf_token %}
-        <div class="time row-2"> 
-            <label for="">first name</label>
-            <input type="text" name="first_name_from" required>
-            <label for="">last name</label>
-            <input type="text" name="last_name_from" required>
-          </div>
-        <div class="time row-2"><label for="">Email</label> <input type="email" name="email_from" required> <label for="">Your age :</label><input type="text" name="age_from" required></div>
-        <div class="time row-3 "> <input type="submit" class="btn btn-danger" name="insert_into" > </div>
-        </form>
-        <form action="/" method="post">
-          {% csrf_token %}
-          <div class="time"><label for="">delete by id</label><input type="text" name="ids" required> </div>
-          <div class="time row-3 "> <input type="submit" class="btn btn-danger" name="Delete" > </div>
-       
-        </form>
-    </div> --> 
+        <ul class="messages">    
+        {% for message in messages %}    
+          <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+        </ul>
+    {% endif %}
+      </div>
 </body>
 </html>
