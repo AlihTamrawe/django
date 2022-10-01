@@ -10,11 +10,10 @@
     <title class="title-dark">Dojos & Ninjas </title>
 </head>
 <body>
-      <footer class="col-12" ><h1>Edit Show {{id}}</h1> <a href="/shows/">Back to home</a></footer>
+    <footer class="col-2" ><h1>Edit Show {{id}}</h1> <a href="/shows/">Back to home</a></footer>
   
       <div class="row" >
           <div class="container col-2">
-            <a style="position:absolute; top:10px;left:15px; font-size: 17px; color: blueviolet;" href="/shows">Go Back to home</a>
             <div class="column col-4">
               <form method="post">
                 {% csrf_token %}
@@ -32,10 +31,14 @@
 
                     <h1>{{message}}</h1>
               </form>
+              <div class="row">
+                <a href="/shows/{{show_id.id}}/">look in breif of the Show  </a>
+              </div>
             </div>
             </div>
           </div>
       </div>    
+     
       <div class="col-8">
         <h1>Massages of validation</h1>
     {% if messages %}

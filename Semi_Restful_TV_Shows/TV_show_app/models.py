@@ -13,7 +13,7 @@ class ShowsManager(models.Manager):
             errors["network_from"] = "Network should be at least 3 characters"
         if len(formData['desc_from']) < 10:
             errors["desc_from"] = "description should be at least 10 characters"
-        if datetime.datetime.today() > datetime.datetime.strptime(formData['date_from'],date_format) :
+        if datetime.datetime.today() < datetime.datetime.strptime(formData['date_from'],date_format) :
             errors['date_from'] = "Date is not accurate and must be in the past"
         return errors
     def basic_validator(self, postData):    
