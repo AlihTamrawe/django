@@ -21,10 +21,10 @@ class Usermanager(models.Manager):
         if len(formData['last_name']) < 3:
             errors["last_name"] = "Network should be at least 3 characters"
         if len(formData['pw1']) < 8:
-            errors["pw1"] = "description should be at least 10 characters"
+            errors["pw1"] = "password should be at least 8 number"
         interval=datetime.datetime.today() - datetime.datetime.strptime(formData['birthday'],date_format)
         print(interval)
-        if interval/356 > datetime.timedelta(days=13*356):
+        if interval/356 >= datetime.timedelta(days=13*356):
             errors['birthday'] = "the age must be more than 13 years"
         
         return errors
