@@ -30,6 +30,21 @@
     <div class="row card">
         {%for message in Messages%}
             <p>{{message.message}} for {{message.poster.first_name}}</p>
+            <form method="post" class="row">
+            <div class="col ">
+                <input type="hidden" name="mass" value="{{message.id}}">
+                {%for comment in Comments%}
+                {% if message.id == comment.reply_id %}
+                <div class="row" ><p>{{comment.comment}}   {{comment.commander.first_name}}</p></div> 
+                {% endif %}
+                {% endfor%}
+            </div>
+                {% csrf_token %}
+                
+                <Textarea name="comment_inserted" class="row"></Textarea>
+                <input type="submit" name="comment_save" value="post comment">
+            </form>
+            
         {% endfor%}
     </div>
 </div>
