@@ -15,8 +15,9 @@
             <h3>CodingDojo Wall</h3>
         </div>
         <div>
-            <h3>welcome {{id1}}</h3>
+            <h3>welcome {{id1.id}}:{{id1.first_name}}</h3>
         </div>
+        <div><a href="/"> Logout</a></div>
     </footer>
     <div class="col card">
         <div class="row card">
@@ -27,6 +28,7 @@
         <input type="submit" name="message_save" value="Post a message">
     </form>
 </div>
+
     <div class="row card">
         {%for message in Messages%}
             <p>{{message.message}} for {{message.poster.first_name}}</p>
@@ -40,7 +42,7 @@
                 {% endfor%}
             </div>
                 {% csrf_token %}
-                
+
                 <Textarea name="comment_inserted" class="row"></Textarea>
                 <input type="submit" name="comment_save" value="post comment">
             </form>
