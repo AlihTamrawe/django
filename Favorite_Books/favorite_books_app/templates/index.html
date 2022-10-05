@@ -69,16 +69,19 @@
     </aside>
     <section class="col-2">
         <h2>All Books</h2>
-        {% for book in Books%}
+        <div class="row border-bottom border-danger"></div>
+
+            {% for book in Books%}
         <div>
-            <a href="/books/{{book.id}}/">{{book.title}}</a>
+            <a href="/books/{{book.id}}/">Name :{{book.title}}</a>
             <p>{{book.description}}</p>
             {%if book.liker.all %}
             {% for likes in book.liker.all%}
             {% if likes.id == id1.id %}
-            <p> how like it {{likes.first_name}}</p>
+            <p> who is like it {{likes.first_name}}{{likes.last_name}}</p>
             {%else%}
             <a href="/books/like/{{book.id}}">Like</a>
+            <div class="row border-bottom border-secondary"></div>
             {%endif%}
             {%endfor%}
             {%endif%}
@@ -104,10 +107,14 @@
         <h2>who liked the {{books1.title}}</h2>
         <div class="row border-bottom border-danger"></div>
         <div>
-            {%if books1.liker.all %}
-            {% for likes in book.liker.all%}
+           
+            {%if Books1.liker.all %}
+            {% for likes in Books1.liker.all%}
             <p>  {{likes.first_name}} {{likes.last_name}} like it and other</p>
             {%endfor%}
+            {%else%}
+            <a href="/books/like/{{Books1.id}}">Like</a>
+
             {%endif%}
         </div>
     </section>

@@ -55,6 +55,7 @@ def like(request,id):
         'id1':User.objects.get(id=x),
         'user_of_book':User.objects.get(id=Book.objects.get(id=id).uploadeder_id),
         'Books1':Book.objects.get(id=id),
+        'books':Book.objects.all(),
         # 'Bookslike':Book.objects.get(id=1).liker.all(),
         'show':'2',
     }
@@ -68,6 +69,8 @@ def do_like(request,id2):
         'id':id2,
         'id1':User.objects.get(id=request.session['id']),
         'Books1':Book.objects.get(id=id2),
+        'books':Book.objects.all(),
+
         # 'Bookslike':Book.objects.get(id=1).liker.all(),
         'show':'2',
     }
